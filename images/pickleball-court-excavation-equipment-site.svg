@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 675" width="900" height="675" role="img" aria-label="Excavation and site work">
   <defs>
-    <linearGradient id="g15079" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="g67083" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#171d22"/><stop offset="58%" stop-color="#2b333b"/><stop offset="100%" stop-color="#1668a8"/>
     </linearGradient>
   </defs>
-  <rect width="900" height="675" fill="url(#g15079)"/>
+  <rect width="900" height="675" fill="url(#g67083)"/>
   
   <g opacity=".10" fill="#ffffff">
     <circle cx="108" cy="108" r="202"/>

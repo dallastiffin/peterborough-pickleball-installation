@@ -326,7 +326,7 @@ table{border-collapse:collapse;width:100%}
 }
 
 /* ------------------------------------------------------------- form */
-.formsec{background:var(--charcoal);color:#cbd5dd;padding:clamp(3rem,7vw,5rem) 0}
+.formsec{background:var(--charcoal);color:#cbd5dd;padding:clamp(3rem,7vw,5rem) 0;scroll-margin-top:80px}
 .formsec__in{display:grid;gap:2.2rem}
 @media (min-width:960px){ .formsec__in{grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start} }
 .formsec h2{color:#fff}
