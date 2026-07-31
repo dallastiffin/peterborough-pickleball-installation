@@ -89,37 +89,29 @@ domain at it.
 
 In your Pages project → **Custom domains** → **Set up a custom domain**:
 
-1. Add `www.peterboroughpickleballinstallation.com`
-2. Add `peterboroughpickleballinstallation.com` (the apex)
+1. Add `peterboroughpickleballinstallation.com` (the primary)
+2. Add `www.peterboroughpickleballinstallation.com` (redirects to the above)
 
 Cloudflare creates the DNS records automatically if the domain is already in
 your Cloudflare account. If it isn't, move the nameservers to Cloudflare first.
 
-### Apex → www redirect (do this properly)
+### Canonical hostname — already handled
 
-Every canonical URL, Open Graph tag, sitemap entry and schema reference in this
-site uses the `www.` hostname. The bare apex must **301 redirect** to `www.` or
-Google treats them as two sites and splits your ranking signals.
+The site uses the **bare domain** `peterboroughpickleballinstallation.com` in
+every canonical URL, Open Graph tag, sitemap entry and schema block.
 
-Do this with a **Redirect Rule**, not the `_redirects` file — a `/*` splat in
-`_redirects` also matches www traffic and causes an infinite loop.
+A Cloudflare **Redirect Rule** ("Redirect from WWW to root") already sends `www`
+traffic to the bare domain, so both hostnames resolve to one canonical set of
+URLs. Nothing further to configure.
 
-Cloudflare dashboard → your domain → **Rules** → **Redirect Rules** →
-**Create rule**:
+**Do not add a second redirect rule pointing apex → www.** Two opposing rules
+create an infinite redirect loop and take the whole site down. Likewise, keep
+the `/*` apex rule out of `_redirects` — a splat there matches www traffic too
+and loops.
 
-| Field | Value |
-|---|---|
-| Rule name | `apex to www` |
-| When incoming requests match | Custom filter expression |
-| Field | `Hostname` |
-| Operator | `equals` |
-| Value | `peterboroughpickleballinstallation.com` |
-| Then | Dynamic redirect |
-| Expression | `concat("https://www.peterboroughpickleballinstallation.com", http.request.uri.path)` |
-| Status code | `301` |
-| Preserve query string | on |
-
----
+To check it is working, open an incognito window (browsers cache 301s hard) and
+visit `www.peterboroughpickleballinstallation.com/contact`. The address bar
+should drop the `www.` and keep the `/contact` path.
 
 ## Step 5 — connect the contact form
 

@@ -8,7 +8,7 @@ or any static host.
 
 | Field | Value |
 |---|---|
-| Domain | `https://www.peterboroughpickleballinstallation.com` |
+| Domain | `https://peterboroughpickleballinstallation.com` (no www) |
 | Phone (display) | `(705) 242-8236` |
 | Phone (link) | `tel:+17052428236` |
 | Email | `info@peterboroughpickleballinstallation.com` |
@@ -146,10 +146,13 @@ Short version:
 
 Push to `main` and Cloudflare redeploys automatically.
 
-**Apex to www:** every canonical URL, Open Graph tag, sitemap entry and schema
-reference uses the `www.` hostname, so the bare apex must 301 to `www.`. Do that
-with a Cloudflare **Redirect Rule** - not the `_redirects` file, because a `/*`
-splat there matches www traffic too and loops. See `DEPLOY.md`.
+**Canonical hostname:** the site uses the **bare domain** (no `www`) in every
+canonical URL, Open Graph tag, sitemap entry and schema block. A Cloudflare
+Redirect Rule sends `www` traffic to the bare domain, so both hostnames resolve
+to one canonical set of URLs.
+
+Do not add a second redirect rule pointing the other way - two opposing rules
+create an infinite loop and take the site down.
 
 `404.html` is served automatically for missing pages.
 

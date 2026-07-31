@@ -4,4 +4,4 @@ Allow: /
 # No crawl traps on this site.
 Disallow: /_build/
 
-Sitemap: https://www.peterboroughpickleballinstallation.com/sitemap.xml
+Sitemap: https://peterboroughpickleballinstallation.com/sitemap.xml
