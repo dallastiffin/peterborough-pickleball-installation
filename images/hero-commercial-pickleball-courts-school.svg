@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Multi-court commercial pickleball facility">
+  <defs>
+    <linearGradient id="g75242" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1d5236"/><stop offset="58%" stop-color="#2f7d4f"/><stop offset="100%" stop-color="#1668a8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#g75242)"/>
+  
+  <g opacity=".10" fill="#ffffff">
+    <circle cx="192" cy="144" r="270"/>
+    <circle cx="1472" cy="792" r="234"/>
+  </g>
+  
+  <g opacity=".55" stroke="#ffffff" fill="none" stroke-width="3.8">
+    <rect x="304" y="360" width="992" height="468" rx="3"/>
+    <line x1="800" y1="360" x2="800" y2="828"/>
+    <line x1="642" y1="360" x2="642" y2="828"/>
+    <line x1="958" y1="360" x2="958" y2="828"/>
+    <line x1="304" y1="594" x2="642" y2="594"/>
+    <line x1="958" y1="594" x2="1296" y2="594"/>
+  </g>
+  <circle cx="1058" cy="482" r="17" fill="#ef7622"/>
+  <text x="800" y="171" text-anchor="middle" fill="#ffffff" font-family="Helvetica,Arial,sans-serif" font-size="61" font-weight="700">Multi-court commercial pickleball facility</text>
+  <text x="800" y="259" text-anchor="middle" fill="#ffffff" fill-opacity=".72" font-family="Helvetica,Arial,sans-serif" font-size="34">Schools, clubs and municipalities</text>
+  <text x="800" y="860" text-anchor="middle" fill="#ffffff" fill-opacity=".55" font-family="Helvetica,Arial,sans-serif" font-size="34" letter-spacing="2">PLACEHOLDER IMAGE - REPLACE WITH PHOTO</text>
+</svg>

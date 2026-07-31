@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# No crawl traps on this site.
+Disallow: /_build/
+
+Sitemap: https://www.peterboroughpickleballinstallation.com/sitemap.xml

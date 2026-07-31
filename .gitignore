@@ -1,0 +1,42 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+.vscode/
+.idea/
+
+# Node / tooling (not used, here to keep the repo clean if you add tools later)
+node_modules/
+npm-debug.log*
+.env
+.env.*
+
+# Cloudflare / Wrangler
+.wrangler/
+
+# GitHub Pages custom-domain file - not used by Cloudflare Pages
+CNAME
+
+# Unreferenced placeholder art left over from earlier drafts
+images/acrylic-pickleball-court-surfacing-application.svg
+images/backyard-pickleball-court-concrete-base-preparation.svg
+images/commercial-pickleball-courts-municipal-park.svg
+images/finished-backyard-pickleball-court-blue-green.svg
+images/finished-commercial-pickleball-court-complex.svg
+images/hero-about-local-court-builders-peterborough.svg
+images/hero-contact-pickleball-court-quote.svg
+images/hero-pickleball-court-gallery-projects.svg
+images/hero-pickleball-court-installation-peterborough.svg
+images/hoa-condo-pickleball-court-amenity.svg
+images/multi-sport-court-pickleball-basketball-lines.svg
+images/og-pickleball-court-installation-peterborough.svg
+images/pickleball-court-chain-link-fencing-installation.svg
+images/pickleball-court-colour-options-samples.svg
+images/pickleball-court-drainage-grading-site-prep.svg
+images/pickleball-court-led-lighting-poles.svg
+images/pickleball-court-windscreen-privacy-fencing.svg
+images/resurfaced-pickleball-court-fresh-colour-coat.svg
+images/retirement-community-pickleball-court.svg
+images/school-pickleball-court-installation-project.svg
+images/service-area-map-peterborough-kawarthas.svg

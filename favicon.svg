@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Peterborough Pickleball Installation">
+  <rect width="64" height="64" rx="12" fill="#1668a8"/>
+  <rect x="11" y="13" width="42" height="38" rx="2" fill="none" stroke="#ffffff" stroke-width="2.6"/>
+  <path d="M32 13v38M21.5 13v38M42.5 13v38M11 32h10.5M42.5 32H53" stroke="#ffffff" stroke-width="1.8" opacity=".85"/>
+  <circle cx="45" cy="21.5" r="5" fill="#ef7622"/>
+</svg>

@@ -1,0 +1,15 @@
+# Cloudflare Pages redirects
+#
+# NOTE: do NOT put an apex -> www rule here. A /* splat in this file matches
+# www traffic too and causes a redirect loop. Handle apex -> www with a
+# Cloudflare Redirect Rule instead (see README).
+
+# Friendly short paths -> real pages
+/residential    /residential-pickleball-court-installation.html   301
+/commercial     /commercial-pickleball-court-installation.html    301
+/resurfacing    /pickleball-court-resurfacing.html                301
+/tiles          /sport-court-tile-installation.html               301
+/sport-court    /sport-court-tile-installation.html               301
+/maintenance    /pickleball-court-maintenance.html                301
+/quote          /contact.html                                     301
+/free-quote     /contact.html                                     301

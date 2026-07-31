@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 675" width="900" height="675" role="img" aria-label="Tennis court conversion">
+  <defs>
+    <linearGradient id="g4435" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7a3708"/><stop offset="58%" stop-color="#cf5f12"/><stop offset="100%" stop-color="#1668a8"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="675" fill="url(#g4435)"/>
+  
+  <g opacity=".10" fill="#ffffff">
+    <circle cx="108" cy="108" r="202"/>
+    <circle cx="828" cy="594" r="176"/>
+  </g>
+  
+  <g opacity=".55" stroke="#ffffff" fill="none" stroke-width="2.1">
+    <rect x="171" y="270" width="558" height="351" rx="3"/>
+    <line x1="450" y1="270" x2="450" y2="621"/>
+    <line x1="361" y1="270" x2="361" y2="621"/>
+    <line x1="539" y1="270" x2="539" y2="621"/>
+    <line x1="171" y1="446" x2="361" y2="446"/>
+    <line x1="539" y1="446" x2="729" y2="446"/>
+  </g>
+  <circle cx="595" cy="361" r="9" fill="#ef7622"/>
+  <text x="450" y="128" text-anchor="middle" fill="#ffffff" font-family="Helvetica,Arial,sans-serif" font-size="34" font-weight="700">Tennis court conversion</text>
+  <text x="450" y="178" text-anchor="middle" fill="#ffffff" fill-opacity=".72" font-family="Helvetica,Arial,sans-serif" font-size="19">One tennis court converted to four</text>
+  <text x="450" y="645" text-anchor="middle" fill="#ffffff" fill-opacity=".55" font-family="Helvetica,Arial,sans-serif" font-size="19" letter-spacing="2">PLACEHOLDER IMAGE - REPLACE WITH PHOTO</text>
+</svg>

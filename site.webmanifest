@@ -1,0 +1,13 @@
+{
+  "name": "Peterborough Pickleball Installation",
+  "short_name": "Peterborough Pickleball",
+  "description": "Pickleball court installation, resurfacing and maintenance in Peterborough, Ontario.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1c2126",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/images/icon-apple-touch-pickleball-court.svg", "sizes": "180x180", "type": "image/svg+xml" }
+  ]
+}
