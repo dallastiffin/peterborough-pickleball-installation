@@ -7,8 +7,9 @@
 /css/*
   Cache-Control: public, max-age=604800
 
+# Short cache: main.js is not fingerprinted, only ?v= versioned in the HTML.
 /js/*
-  Cache-Control: public, max-age=604800
+  Cache-Control: public, max-age=3600, must-revalidate
 
 /*.html
   Cache-Control: public, max-age=0, must-revalidate
