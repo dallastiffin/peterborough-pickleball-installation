@@ -55,7 +55,7 @@
   /* ---------------------------------------------------- lead form endpoint */
   /* Google Apps Script web-app URL. Deploy google-apps-script.gs as a web app
      ("Execute as: Me", "Who has access: Anyone") and paste the /exec URL here. */
-  var ENDPOINT = "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec";
+  var ENDPOINT = "https://script.google.com/macros/s/AKfycbyM6G4LwvbWw0yMhTlWZaEWwhm0OVYde_JaOD9fSqZWCO3MRmIwvQz4mmemFH8_fPkKzA/exec";
 
   /* ---------------------------------------------------- form validation */
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
