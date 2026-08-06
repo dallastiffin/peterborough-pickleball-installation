@@ -52,6 +52,11 @@
   var yr = document.getElementById("yr");
   if (yr) { yr.textContent = String(new Date().getFullYear()); }
 
+  /* ---------------------------------------------------- lead form endpoint */
+  /* Google Apps Script web-app URL. Deploy google-apps-script.gs as a web app
+     ("Execute as: Me", "Who has access: Anyone") and paste the /exec URL here. */
+  var ENDPOINT = "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec";
+
   /* ---------------------------------------------------- form validation */
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
   var DIGITS_RE = /\d/g;
@@ -89,29 +94,63 @@
     });
 
     form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
       var firstBad = null;
       Array.prototype.forEach.call(controls, function (el) {
         if (!validate(el) && !firstBad) { firstBad = el; }
       });
 
       if (firstBad) {
-        e.preventDefault();
         firstBad.focus();
         firstBad.scrollIntoView({ block: "center", behavior: "smooth" });
         return;
       }
 
-      // If the form action has not been configured yet, keep the visitor on the
-      // page and show a clear message instead of navigating to a broken endpoint.
-      if (form.getAttribute("action").indexOf("YOUR_FORM_ID") !== -1) {
-        e.preventDefault();
-        var ok = form.querySelector(".qform__ok");
+      var ok = form.querySelector(".qform__ok");
+      var btn = form.querySelector("button[type=submit]");
+      var btnText = btn ? btn.textContent : "";
+
+      // Endpoint not connected yet - tell the visitor rather than failing silently.
+      if (ENDPOINT.indexOf("YOUR_DEPLOYMENT_ID") !== -1) {
         if (ok) {
           ok.hidden = false;
-          ok.textContent = "Form endpoint is not connected yet. Add your form handler URL to the form action, then this message will confirm real submissions.";
+          ok.textContent = "Form endpoint is not connected yet. Paste your Apps Script /exec URL into ENDPOINT in js/main.js.";
           ok.scrollIntoView({ block: "center", behavior: "smooth" });
         }
+        return;
       }
+
+      var fd = new FormData(form);
+      var q = new URLSearchParams(window.location.search);
+      fd.append("source_page", window.location.pathname);
+      fd.append("referrer", document.referrer || "");
+      ["utm_source", "utm_medium", "utm_campaign"].forEach(function (k) {
+        fd.append(k, q.get(k) || "");
+      });
+
+      if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
+
+      // Apps Script cannot return CORS-readable responses, so this is a
+      // fire-and-forget POST: no preflight, opaque response, no error body.
+      fetch(ENDPOINT, { method: "POST", mode: "no-cors", body: fd })
+        .then(function () {
+          form.reset();
+          if (ok) {
+            ok.hidden = false;
+            ok.scrollIntoView({ block: "center", behavior: "smooth" });
+          }
+        })
+        .catch(function () {
+          if (ok) {
+            ok.hidden = false;
+            ok.textContent = "Sorry — that did not send. Please call us at 705-242-8236 or email info@peterboroughpickleballinstallation.com.";
+            ok.scrollIntoView({ block: "center", behavior: "smooth" });
+          }
+        })
+        .then(function () {
+          if (btn) { btn.disabled = false; btn.textContent = btnText; }
+        });
     });
   });
 

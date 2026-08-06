@@ -105,17 +105,19 @@ website/
 ├── _redirects                                        Short URLs (/quote, /residential...)
 ├── .gitignore
 ├── DEPLOY.md                                         GitHub + Cloudflare walkthrough
+├── google-apps-script.gs                             Lead handler - paste into Apps Script
 ├── robots.txt
 └── sitemap.xml
 ```
 
 ## BEFORE YOU PUBLISH - required changes
 
-1. **Contact form endpoint.** Every form posts to
-   `https://formspree.io/f/YOUR_FORM_ID`. Replace with your real handler
-   (Formspree, Web3Forms, Netlify Forms, Cloudflare Worker, etc.).
-   Until you do, the JavaScript keeps visitors on the page and shows a notice
-   instead of sending them to a broken URL.
+1. **Contact form endpoint.** Every form submits through `js/main.js` to a
+   Google Apps Script web app that writes leads to a Google Sheet and emails
+   you. Deploy `google-apps-script.gs` (setup steps are in its header comment),
+   then paste the `/exec` URL into the `ENDPOINT` variable near the top of
+   `js/main.js`. Until you do, the JavaScript keeps visitors on the page and
+   shows a notice instead of failing silently.
 
 2. **Remaining photos.** Construction, commercial, resurfacing and tile slots
    still use styled placeholders. See the Photos section above.

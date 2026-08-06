@@ -115,32 +115,34 @@ should drop the `www.` and keep the `/contact` path.
 
 ## Step 5 — connect the contact form
 
-**This is the one thing that actually blocks launch.** Every form on the site
-posts to `https://formspree.io/f/YOUR_FORM_ID`. Until you replace that, quote
-requests go nowhere. The JavaScript currently catches it and shows a notice
-rather than sending visitors to a broken URL, but nobody can reach you by form.
+**This is the one thing that actually blocks launch.** All 13 forms are handled
+by `js/main.js`, which POSTs to a Google Apps Script web app. That script logs
+every lead to a Google Sheet and emails you an alert. Until you deploy it and
+paste the URL in, quote requests go nowhere — the JavaScript shows a notice
+instead.
 
-Easiest option — **Cloudflare Pages Functions**, no third party:
+1. Create a Google Sheet, e.g. "Peterborough Pickleball Leads".
+2. **Extensions → Apps Script**, delete the starter code, paste in the contents
+   of `google-apps-script.gs` from this repo.
+3. Set `NOTIFY_EMAIL` at the top to the address that should get lead alerts.
+4. Run the `setupSheet` function once and approve the permission prompts.
+5. **Deploy → New deployment → Web app**, with:
+   - Execute as: **Me**
+   - Who has access: **Anyone**
+6. Copy the `/exec` URL and paste it into `ENDPOINT` near the top of
+   `js/main.js`, replacing `YOUR_DEPLOYMENT_ID`.
 
-Create `functions/api/quote.js` in the repo, then change every form's `action`
-to `/api/quote`. Cloudflare picks the function up automatically on deploy.
+After any later edit to the script you must **Deploy → Manage deployments →
+edit → Version: New version**, or the live URL keeps serving the old code.
 
-Or use a hosted handler and paste its URL into the `action` attribute of all 13
-forms:
+Notes: the browser POST uses `mode: "no-cors"`, because Apps Script cannot
+return CORS-readable responses. That means the page cannot see server errors —
+it shows the success message once the request is sent. The hidden `_gotcha`
+field is checked server-side and spam submissions are dropped.
 
-- **Formspree** — free tier, 50 submissions/month
-- **Web3Forms** — free, no account needed
-- **Basin**, **FormSubmit** — similar
-
-Find and replace across the `.html` files:
-
-```
-https://formspree.io/f/YOUR_FORM_ID   →   your real endpoint
-```
-
-Then **test it yourself** — submit the form and confirm the email arrives at
-`info@peterboroughpickleballinstallation.com`. A silently broken form on a
-lead-generation site is worse than no site.
+Then **test it yourself** — submit the form, confirm the row lands in the Sheet
+and the email arrives. A silently broken form on a lead-generation site is worse
+than no site.
 
 ---
 
